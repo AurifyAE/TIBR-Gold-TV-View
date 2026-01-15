@@ -219,6 +219,8 @@ function TvScreen() {
         </Box>
       </Box>
 
+
+      <SpotRate />
       <Grid
         container
         spacing={4}
@@ -228,14 +230,13 @@ function TvScreen() {
         className="p-10 py-0"
       >
         <Grid item xs={12} md={8}>
-          <SpotRate />
           <CommodityTable commodities={commodities} />
         </Grid>
         <Grid item xs={12} md={4}>
-          <Carousel />
+          {/* <Carousel /> */}
           <TradingViewWidget />
           <Box className="flex flex-col justify-center items-center">
-            <Typography sx={{ fontSize: "1.2vw", marginTop: "0px" }}>
+            <Typography sx={{ fontSize: "1.2vw", marginTop: "30px" }}>
               Powered by www.aurify.ae
             </Typography>
           </Box>

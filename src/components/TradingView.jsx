@@ -43,7 +43,7 @@ const TradingViewWidget = React.memo(() => {
     }, []);
 
     return (
-        <div className='mt-3' style={{ height: '30vh', width: '30vw' }}>
+        <div className='mt-3' style={{ height: '35vh', width: '30vw' }}>
             <div
                 className="tradingview-widget-container"
                 ref={container}
