@@ -172,32 +172,68 @@ function TvScreen() {
   const { day, date, month, year } = getFormattedDateParts(dateTime);
 
   return (
-    <Box sx={{ minHeight: "100vh", color: "white", padding: "0px" }}>
+    <Box sx={{ minHeight: "100vh", color: "white", padding: "0px", width: "100%" }}>
       <Box className="flex flex-row items-center justify-between mb-10 p-10 py-0 mt-3">
         {/* Date */}
         <Box>
           <Typography
-            className="text-white font-semibold text-xl"
-            sx={{ fontSize: "2.5vw" }}
+            sx={{
+              fontFamily: "Roboto, sans-serif",
+              fontStyle: "normal",
+              fontWeight: 600,
+              fontSize: "3.5vw",
+              lineHeight: "55px",
+              color: "rgb(255, 255, 255)",
+            }}
           >
             {day.toUpperCase()}
           </Typography>
-          <Box className="flex flex-row" sx={{ overflow: "visible", whiteSpace: "nowrap" }}>
+
+
+          <Box sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            whiteSpace: "nowrap",
+            gap: "12px",
+          }}>
             <Typography
-              className="text-white font-bold mx-2"
-              sx={{ fontSize: "1.5vw", fontWeight: "600" }}
+              sx={{
+                fontFamily: "Roboto, sans-serif",
+                fontStyle: "normal",
+                fontWeight: 600,
+                fontSize: "2.8vw",
+                lineHeight: "55px",
+                color: "rgb(255, 255, 255)",
+              }}
             >
               {date}
             </Typography>
             <Typography
               className="text-white font-bold mx-2"
-              sx={{ fontSize: "1.5vw", fontWeight: "600", marginLeft: "0.5rem" }}
+              sx={{
+                fontFamily: "Roboto, sans-serif",
+                fontStyle: "normal",
+                fontWeight: 600,
+                fontSize: "2.8vw",
+                lineHeight: "55px",
+                color: "rgb(255, 255, 255)",
+                marginLeft: "10px",
+              }}
             >
               {month}
             </Typography>
             <Typography
               className="text-white font-bold mx-2"
-              sx={{ fontSize: "1.5vw", fontWeight: "600", marginLeft: "0.5rem" }}
+              sx={{
+                fontFamily: "Roboto, sans-serif",
+                fontStyle: "normal",
+                fontWeight: 600,
+                fontSize: "2.8vw",
+                lineHeight: "55px",
+                color: "rgb(255, 255, 255)",
+                marginLeft: "10px",
+              }}
             >
               {year}
             </Typography>
@@ -205,14 +241,20 @@ function TvScreen() {
         </Box>
 
         {/* Logo */}
-        <img src={saimaLogo} alt="" className="w-[190px] h-[200px]" />
+        <img src={saimaLogo} alt="" className="w-[220px] h-[230px]" />
 
         {/* Time */}
         <Box className="flex flex-col items-center">
-          <AccessTime sx={{ color: "#FFF", fontSize: "2vw", marginBottom: "0.5rem" }} />
+          <AccessTime sx={{ color: "#FFF", fontSize: "4vw", marginBottom: "0.5rem" }} />
           <Typography
-            fontWeight="bold"
-            sx={{ color: "#FFF", fontSize: "2.3vw" }}
+            sx={{
+              fontFamily: "Roboto, sans-serif",
+              fontStyle: "normal",
+              fontWeight: 600,
+              fontSize: "2.8vw",
+              lineHeight: "55px",
+              color: "rgb(255, 255, 255)",
+            }}
           >
             {getFormattedTimeWithoutSeconds(dateTime)}
           </Typography>
@@ -233,8 +275,8 @@ function TvScreen() {
           <CommodityTable commodities={commodities} />
         </Grid>
         <Grid item xs={12} md={4}>
-          {/* <Carousel /> */}
-          <TradingViewWidget />
+          <Carousel />
+          {/* <TradingViewWidget /> */}
           <Box className="flex flex-col justify-center items-center">
             <Typography sx={{ fontSize: "1.2vw", marginTop: "30px" }}>
               Powered by www.aurify.ae
