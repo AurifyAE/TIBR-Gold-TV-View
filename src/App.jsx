@@ -1,58 +1,49 @@
 import { useState, useEffect } from "react";
+import { useConnectionState } from "use-connection-state";
 import { SpotRateProvider } from "./context/SpotRateContext";
 import "./App.css";
 import TvScreen from "./pages/tvscreenView";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
-  const [isTvScreen, setIsTvScreen] = useState(window.innerWidth >= 1024);
+  const [isTvScreen, setIsTvScreen] = useState(window.innerWidth >= 100);
 
   useEffect(() => {
-    const app = document.getElementById("tv-app-container");
+    // Listen to resize changes
+    const handleResize = () => {
+      setIsTvScreen(window.innerWidth >= 100);
+      scaleApp(); // Recalculate scale when screen changes
+    };
 
+    // Scaling function
     const scaleApp = () => {
+      const app = document.getElementById("tv-app-container");
       if (!app) return;
 
-      // Measure actual content height (we’ll use full width)
-      const contentHeight = app.scrollHeight;
-      const viewportHeight = window.innerHeight;
+      // Your base design dimensions (1080p layout)
+      const baseWidth = 1920;
+      const baseHeight = 1080;
 
-      if (window.innerWidth >= 1024) {
-        // Calculate only vertical scale factor
-        const scaleY = viewportHeight / contentHeight;
+      // Calculate scale based on window size
+      const scaleX = window.innerWidth / baseWidth;
+      const scaleY = window.innerHeight / baseHeight;
+      const scale = Math.min(scaleX, scaleY);
 
-        // Apply vertical scale only
-        app.style.transform = `scaleY(${scaleY})`;
-        app.style.transformOrigin = "top center";
+      // Apply scale transform
+      app.style.transform = `scale(${scale})`;
+      app.style.transformOrigin = "top left";
 
-        // Fill full width
-        app.style.width = "100vw";
-        app.style.position = "absolute";
-        app.style.left = "0";
-        app.style.top = "0";
-        app.style.right = "0";
-        app.style.margin = "0 auto";
-
-        // Prevent scrollbars or extra space
-        document.body.style.overflow = "hidden";
-      } else {
-        // Reset for mobile / tablet
-        app.style.transform = "none";
-        app.style.position = "relative";
-        app.style.left = "0";
-        app.style.top = "0";
-        app.style.width = "100%";
-        app.style.height = "auto";
-        document.body.style.overflow = "auto";
-      }
+      // Optional: keep centered
+      const offsetX = (window.innerWidth - baseWidth * scale) / 2;
+      const offsetY = (window.innerHeight - baseHeight * scale) / 2;
+      app.style.position = "absolute";
+      app.style.left = `${offsetX}px`;
+      app.style.top = `${offsetY}px`;
     };
 
-    const handleResize = () => {
-      setIsTvScreen(window.innerWidth >= 1024);
-      scaleApp();
-    };
-
-    // Run on mount + resize
+    // Initialize once
     scaleApp();
+
     window.addEventListener("resize", handleResize);
     window.addEventListener("load", scaleApp);
 
@@ -67,15 +58,15 @@ function App() {
       <div
         id="tv-app-container"
         style={{
-          width: "100vw",
-          minHeight: "fit-content",
+          width: "1920px",
+          height: "1080px",
           overflow: "hidden",
         }}
       >
-        {isTvScreen ? <TvScreen /> : <TvScreen />}
+        {!isTvScreen ? <ErrorPage /> : <TvScreen />}
       </div>
     </SpotRateProvider>
   );
 }
 
-export default App;
+export default App; 

@@ -16,7 +16,7 @@ const NewsTicker = ({ newsItems }) => {
         sx={{
           color: "#013b24",
           fontWeight: "bold",
-          fontSize: "1.6rem",
+          fontSize: "2.2rem",
           backgroundColor: "#a8802c",
           padding: "6px 14px",
           whiteSpace: "nowrap",
@@ -51,7 +51,7 @@ const NewsTicker = ({ newsItems }) => {
               sx={{
                 marginRight: "4vw",
                 display: "inline-block",
-                fontSize: "1.6rem",
+                fontSize: "2.2rem",
                 color: "white",
               }}
             >

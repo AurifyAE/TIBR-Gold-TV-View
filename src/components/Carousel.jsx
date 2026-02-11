@@ -19,12 +19,12 @@ const Carousel = () => {
 
   return (
     <Box className="flex flex-row items-center justify-center relative mt-10"
-      sx={{width: '30vw'}}
+      sx={{width: '40vw'}}
     >
       <img
         src={images[currentIndex]}
         alt={`Carousel image ${currentIndex + 1}`}
-        className="w-full h-56 rounded-xl mb-3 object-fit"
+        className="w-full h-72 rounded-xl mb-3 object-fit"
       />
     </Box>
   );

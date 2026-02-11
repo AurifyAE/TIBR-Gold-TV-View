@@ -86,7 +86,7 @@ const CommodityTable = ({ commodities }) => {
               sx={{
                 color: "#013b24",
                 fontWeight: "bold",
-                fontSize: "1.8vw",
+                fontSize: "2.3vw",
                 textAlign: "center",
               }}
               colSpan={2}
@@ -97,7 +97,7 @@ const CommodityTable = ({ commodities }) => {
               sx={{
                 color: "#013b24",
                 fontWeight: "bold",
-                fontSize: "1.8vw",
+                fontSize: "2.3vw",
                 textAlign: "left",
               }}
             >
@@ -107,7 +107,7 @@ const CommodityTable = ({ commodities }) => {
               sx={{
                 color: "#013b24",
                 fontWeight: "bold",
-                fontSize: "1.8vw",
+                fontSize: "2.3vw",
                 textAlign: "left",
               }}
             >
@@ -198,7 +198,7 @@ const CommodityTable = ({ commodities }) => {
                   <TableCell
                     sx={{
                       color: "white",
-                      fontSize: "2vw",
+                      fontSize: "2.5vw",
                       fontWeight: "bold",
                       textAlign: "right",
                     }}
@@ -208,7 +208,7 @@ const CommodityTable = ({ commodities }) => {
                   <TableCell
                     sx={{
                       color: "white",
-                      fontSize: "1.2vw",
+                      fontSize: "1.7vw",
                       textAlign: "left",
                       paddingLeft: "0px",
                       fontWeight: "bold",
@@ -221,7 +221,7 @@ const CommodityTable = ({ commodities }) => {
                   <TableCell
                     sx={{
                       color: "white",
-                      fontSize: "1.8vw",
+                      fontSize: "2.3vw",
                       fontWeight: "bold",
                       textAlign: "left",
                     }}
@@ -231,7 +231,7 @@ const CommodityTable = ({ commodities }) => {
                   <TableCell
                     sx={{
                       color: "white",
-                      fontSize: "2vw",
+                      fontSize: "2.5vw",
                       fontWeight: "bold",
                       textAlign: "left",
                     }}
@@ -240,7 +240,7 @@ const CommodityTable = ({ commodities }) => {
                   </TableCell>
                 </TableRow>
                 {/* Add gap between rows */}
-                <Box sx={{ height: "4px" }} />
+                <Box sx={{ height: "15px" }} />
               </React.Fragment>
             );
           })}
