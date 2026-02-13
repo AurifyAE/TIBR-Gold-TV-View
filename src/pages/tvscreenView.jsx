@@ -173,7 +173,7 @@ function TvScreen() {
 
   return (
     <Box sx={{ minHeight: "100vh", color: "white", padding: "0px", width: "100%" }}>
-      <Box className="flex flex-row items-center justify-between mb-10 p-10 py-0 mt-3">
+      <Box className="flex flex-row items-center justify-between  p-10 py-0 mt-3">
         {/* Date */}
         <Box>
           <Typography
@@ -181,7 +181,7 @@ function TvScreen() {
               fontFamily: "Roboto, sans-serif",
               fontStyle: "normal",
               fontWeight: 600,
-              fontSize: "3.5vw",
+              fontSize: "2.5vw",
               lineHeight: "55px",
               color: "rgb(255, 255, 255)",
             }}
@@ -215,7 +215,7 @@ function TvScreen() {
                 fontFamily: "Roboto, sans-serif",
                 fontStyle: "normal",
                 fontWeight: 600,
-                fontSize: "2.8vw",
+                fontSize: "2vw",
                 lineHeight: "55px",
                 color: "rgb(255, 255, 255)",
                 marginLeft: "10px",
@@ -229,7 +229,7 @@ function TvScreen() {
                 fontFamily: "Roboto, sans-serif",
                 fontStyle: "normal",
                 fontWeight: 600,
-                fontSize: "2.8vw",
+                fontSize: "2vw",
                 lineHeight: "55px",
                 color: "rgb(255, 255, 255)",
                 marginLeft: "10px",
@@ -241,7 +241,7 @@ function TvScreen() {
         </Box>
 
         {/* Logo */}
-        <img src={saimaLogo} alt="" className="w-[220px] h-[230px]" />
+        <img src={saimaLogo} alt="" className="w-[200px] h-[210px]" />
 
         {/* Time */}
         <Box className="flex flex-col items-center">
@@ -251,7 +251,7 @@ function TvScreen() {
               fontFamily: "Roboto, sans-serif",
               fontStyle: "normal",
               fontWeight: 600,
-              fontSize: "2.8vw",
+              fontSize: "2vw",
               lineHeight: "55px",
               color: "rgb(255, 255, 255)",
             }}

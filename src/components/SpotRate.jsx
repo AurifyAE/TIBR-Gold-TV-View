@@ -27,7 +27,7 @@ const SpotRate = () => {
       >
         <div
           style={{
-            fontSize: isGold ? "2.6vw" : "2.2vw",
+            fontSize: "2vw",
             fontWeight: "900",
             letterSpacing: "2px",
             color: "#013b24",
@@ -52,7 +52,7 @@ const SpotRate = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-around",
-            padding: "70px 40px 40px",
+            padding: " 40px 40px",
           }}
         >
           {/* BID */}
@@ -61,7 +61,7 @@ const SpotRate = () => {
               style={{
                 fontSize: "1.8vw",
                 fontWeight: "700",
-                marginBottom: "16px",
+                // marginBottom: "16px",
                 color: "#94a3b8",
                 letterSpacing: "3px",
               }}
@@ -70,7 +70,7 @@ const SpotRate = () => {
             </div>
             <div
               style={{
-                fontSize: isGold ? "3.8vw" : "3.2vw",
+                fontSize: "3vw",
                 fontWeight: "800",
                 color: getTextColor(data.bidChanged),
               }}
@@ -95,7 +95,7 @@ const SpotRate = () => {
               style={{
                 fontSize: "1.8vw",
                 fontWeight: "700",
-                marginBottom: "16px",
+                // marginBottom: "16px",
                 color: "#94a3b8",
                 letterSpacing: "3px",
               }}
@@ -104,7 +104,7 @@ const SpotRate = () => {
             </div>
             <div
               style={{
-                fontSize: isGold ? "3.8vw" : "3.2vw",
+                fontSize: "3vw",
                 fontWeight: "800",
                 color: getTextColor(data.askChanged),
               }}
@@ -129,7 +129,6 @@ const SpotRate = () => {
               style={{
                 fontSize: "1.8vw",
                 fontWeight: "700",
-                marginBottom: "16px",
                 color: "#94a3b8",
                 letterSpacing: "3px",
               }}
@@ -137,7 +136,7 @@ const SpotRate = () => {
               TODAY
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: "1.8vw", fontWeight: "700", color: "#e2e8f0" }}>
                 L: {data.low}
               </div>
@@ -154,8 +153,8 @@ const SpotRate = () => {
   return (
     <div style={{ width: "100%", padding: "0 24px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", width: "100%", flexWrap: "wrap" }}>
-        <div style={{ flex: "0 0 58%" }}>{renderSpotCard("Gold", goldData, true)}</div>
-        <div style={{ flex: "0 0 40%" }}>{renderSpotCard("Silver", silverData, false)}</div>
+        <div style={{ flex: "0 0 53%" }}>{renderSpotCard("Gold", goldData, true)}</div>
+        <div style={{ flex: "0 0 45%" }}>{renderSpotCard("Silver", silverData, false)}</div>
       </div>
 
       <style>{`
