@@ -8,6 +8,7 @@ import {
   TableHead,
   TableRow,
   Box,
+  Typography,
 } from "@mui/material";
 import { useSpotRate } from "../context/SpotRateContext";
 
@@ -87,7 +88,7 @@ const CommodityTable = ({ commodities }) => {
                 color: "#013b24",
                 fontWeight: "bold",
                 fontSize: "2vw",
-                textAlign: "center",
+                textAlign: "start",
               }}
               colSpan={2}
             >
@@ -101,7 +102,8 @@ const CommodityTable = ({ commodities }) => {
                 textAlign: "left",
               }}
             >
-              UNIT
+              {/* UNIT */}
+              WEIGHT
             </TableCell>
             <TableCell
               sx={{
@@ -109,9 +111,16 @@ const CommodityTable = ({ commodities }) => {
                 fontWeight: "bold",
                 fontSize: "2vw",
                 textAlign: "left",
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5vw'
               }}
             >
-              ASK (AED)
+              ASK
+
+              <Typography fontSize='1.3vw' mb='-0.5vw'>
+                AED
+              </Typography>
             </TableCell>
           </TableRow>
           <Box sx={{ height: "15px" }} />
@@ -170,7 +179,7 @@ const CommodityTable = ({ commodities }) => {
                   sx={{
                     "& td": {
                       borderBottom: "none",
-                      padding: "7px",
+                      padding: "7px 16px",
                     },
                     background: "#072919",
                     "& tr td": {
@@ -198,25 +207,32 @@ const CommodityTable = ({ commodities }) => {
                   <TableCell
                     sx={{
                       color: "white",
-                      fontSize: "2.3vw",
+                      fontSize: "2vw",
                       fontWeight: "bold",
-                      textAlign: "right",
+                      textAlign: "start",
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '1vw'
                     }}
                   >
                     {getMetalName(commodity.metal)}
+
+                    <Typography fontSize='1.3vw'>
+                      {commodity.metal.toLowerCase() === "gold ten tola"
+                        ? "TEN TOLA"
+                        : purity}
+                    </Typography>
                   </TableCell>
                   <TableCell
                     sx={{
                       color: "white",
-                      fontSize: "1.5vw",
+                      fontSize: "1.3vw",
                       textAlign: "left",
                       paddingLeft: "0px",
                       fontWeight: "bold",
                     }}
                   >
-                    {commodity.metal.toLowerCase() === "gold ten tola"
-                      ? "TEN TOLA"
-                      : purity}
+
                   </TableCell>
                   <TableCell
                     sx={{
@@ -240,7 +256,7 @@ const CommodityTable = ({ commodities }) => {
                   </TableCell>
                 </TableRow>
                 {/* Add gap between rows */}
-                <Box sx={{ height: "15px" }} />
+                <Box sx={{ height: "5px" }} />
               </React.Fragment>
             );
           })}

@@ -8,11 +8,12 @@ const NewsTicker = ({ newsItems }) => {
         display: "flex",
         alignItems: "center",
         width: "100%",
-        marginTop: "25px",
+        marginTop: "15px",
+        marginBottom: "25px",
       }}
     >
       {/* NEWS Label */}
-      <Typography
+      {/* <Typography
         sx={{
           color: "#013b24",
           fontWeight: "bold",
@@ -23,7 +24,7 @@ const NewsTicker = ({ newsItems }) => {
         }}
       >
         NEWS
-      </Typography>
+      </Typography> */}
 
       {/* Scrolling Ticker */}
       <Box
@@ -51,7 +52,7 @@ const NewsTicker = ({ newsItems }) => {
               sx={{
                 marginRight: "4vw",
                 display: "inline-block",
-                fontSize: "2.2rem",
+                fontSize: "2.4rem",
                 color: "white",
               }}
             >

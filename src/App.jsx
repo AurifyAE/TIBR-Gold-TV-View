@@ -17,7 +17,7 @@ function App() {
 
     // Scaling function
     const scaleApp = () => {
-      const app = document.getElementById("tv-app-container");
+      const app = document.getElementById("tv-app-containerc");
       if (!app) return;
 
       // Your base design dimensions (1080p layout)
@@ -58,8 +58,9 @@ function App() {
       <div
         id="tv-app-container"
         style={{
-          width: "1920px",
-          height: "1080px",
+          width: "100%",
+          // height: "1080px",
+          height: "100dvh",
           overflow: "hidden",
         }}
       >

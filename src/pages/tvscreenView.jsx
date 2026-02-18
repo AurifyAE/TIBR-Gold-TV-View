@@ -173,9 +173,9 @@ function TvScreen() {
 
   return (
     <Box sx={{ minHeight: "100vh", color: "white", padding: "0px", width: "100%" }}>
-      <Box className="flex flex-row items-center justify-between  p-10 py-0 mt-3">
+      <Box className="grid  grid-cols-3 flex-row items-center justify-between  p-10 py-0 mt-1">
         {/* Date */}
-        <Box>
+        <Box className='text-start'>
           <Typography
             sx={{
               fontFamily: "Roboto, sans-serif",
@@ -183,6 +183,7 @@ function TvScreen() {
               fontWeight: 600,
               fontSize: "2.5vw",
               lineHeight: "55px",
+              letterSpacing: '.2vw',
               color: "rgb(255, 255, 255)",
             }}
           >
@@ -192,17 +193,19 @@ function TvScreen() {
 
           <Box sx={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "start",
             alignItems: "center",
             whiteSpace: "nowrap",
             gap: "12px",
+            mt: '.5vw',
           }}>
             <Typography
               sx={{
                 fontFamily: "Roboto, sans-serif",
                 fontStyle: "normal",
                 fontWeight: 600,
-                fontSize: "2.8vw",
+                fontSize: "2.5vw",
+
                 lineHeight: "55px",
                 color: "rgb(255, 255, 255)",
               }}
@@ -215,7 +218,7 @@ function TvScreen() {
                 fontFamily: "Roboto, sans-serif",
                 fontStyle: "normal",
                 fontWeight: 600,
-                fontSize: "2vw",
+                fontSize: "2.5vw",
                 lineHeight: "55px",
                 color: "rgb(255, 255, 255)",
                 marginLeft: "10px",
@@ -229,7 +232,7 @@ function TvScreen() {
                 fontFamily: "Roboto, sans-serif",
                 fontStyle: "normal",
                 fontWeight: 600,
-                fontSize: "2vw",
+                fontSize: "2.5vw",
                 lineHeight: "55px",
                 color: "rgb(255, 255, 255)",
                 marginLeft: "10px",
@@ -241,17 +244,19 @@ function TvScreen() {
         </Box>
 
         {/* Logo */}
-        <img src={saimaLogo} alt="" className="w-[200px] h-[210px]" />
+        <Box className="flex justify-center items-center">
+          <img src={saimaLogo} alt="" className="w-[200px] h-[200px] object-contain" />
+        </Box>
 
         {/* Time */}
-        <Box className="flex flex-col items-center">
-          <AccessTime sx={{ color: "#FFF", fontSize: "4vw", marginBottom: "0.5rem" }} />
+        <Box className="flex flex-col items-end justify-end">
+          {/* <AccessTime sx={{ color: "#FFF", fontSize: "4vw", marginBottom: "0.5rem" }} /> */}
           <Typography
             sx={{
               fontFamily: "Roboto, sans-serif",
               fontStyle: "normal",
               fontWeight: 600,
-              fontSize: "2vw",
+              fontSize: "3vw",
               lineHeight: "55px",
               color: "rgb(255, 255, 255)",
             }}
@@ -260,21 +265,30 @@ function TvScreen() {
           </Typography>
         </Box>
       </Box>
+      <NewsTicker newsItems={news} />
 
 
-      <SpotRate />
       <Grid
         container
         spacing={4}
         direction="row"
-        alignItems="flex-start"
+        alignItems='center'
         justifyContent="space-between"
         className="p-10 py-0"
       >
         <Grid item xs={12} md={8}>
+          <SpotRate />
           <CommodityTable commodities={commodities} />
         </Grid>
-        <Grid item xs={12} md={4}>
+
+        <Grid
+          item
+          xs={12}
+          md={4}
+          display='flex'
+          direction="column"
+          alignItems="center"
+          justifyContent="space-between">
           <Carousel />
           {/* <TradingViewWidget /> */}
           <Box className="flex flex-col justify-center items-center">
@@ -285,7 +299,6 @@ function TvScreen() {
         </Grid>
       </Grid>
 
-      <NewsTicker newsItems={news} />
       {showLimitModal && <LimitExceededModal />}
     </Box>
   );
