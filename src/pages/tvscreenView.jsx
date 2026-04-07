@@ -35,13 +35,30 @@ function TvScreen() {
   const { updateMarketData } = useSpotRate();
   const adminId = import.meta.env.VITE_APP_ADMIN_ID;
 
-  updateMarketData(
+  // updateMarketData(
+  //   marketData,
+  //   goldBidSpread,
+  //   goldAskSpread,
+  //   silverBidSpread,
+  //   silverAskSpread
+  // );
+
+  useEffect(() => {
+    updateMarketData(
+      marketData,
+      goldBidSpread,
+      goldAskSpread,
+      silverBidSpread,
+      silverAskSpread
+    );
+  }, [
     marketData,
     goldBidSpread,
     goldAskSpread,
     silverBidSpread,
-    silverAskSpread
-  );
+    silverAskSpread,
+  ]);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -155,7 +172,6 @@ function TvScreen() {
     const month = format(date, "MMM").toUpperCase();
     const year = format(date, "yyyy");
 
-    console.log("Date Parts:", { day, dayOfMonth, month, year }); // Debug log
 
     return {
       day,

@@ -114,7 +114,12 @@ const CommodityTable = ({ commodities }) => {
               ASK (AED)
             </TableCell>
           </TableRow>
-          <Box sx={{ height: "15px" }} />
+          <TableRow>
+            <TableCell
+              colSpan={4}
+              sx={{ height: "15px", padding: 0, border: "0" }}
+            />
+          </TableRow>
         </TableHead>
         <TableBody>
           {commodities.map((commodity, index) => {
@@ -240,7 +245,12 @@ const CommodityTable = ({ commodities }) => {
                   </TableCell>
                 </TableRow>
                 {/* Add gap between rows */}
-                <Box sx={{ height: "15px" }} />
+                <TableRow>
+                  <TableCell
+                    colSpan={4}
+                    sx={{ height: "15px", padding: 0, border: "0" }}
+                  />
+                </TableRow>
               </React.Fragment>
             );
           })}
