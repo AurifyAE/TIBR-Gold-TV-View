@@ -294,7 +294,7 @@ function TvScreen() {
           <Carousel />
           {/* <TradingViewWidget /> */}
           <Box className="flex flex-col justify-center items-center">
-            <Typography sx={{ fontSize: "1.2vw", marginTop: "30px" }}>
+            <Typography sx={{ fontSize: "1.3vw", marginTop: "30px" }}>
               Powered by www.aurify.ae
             </Typography>
           </Box>
