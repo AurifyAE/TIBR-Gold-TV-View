@@ -15,24 +15,51 @@ const CommodityTable = ({ commodities }) => {
   const { goldData, silverData } = useSpotRate();
 
   // Helper function to get bid and ask values based on metal type
+  // const getBidAskValues = (metal) => {
+  //   if (
+  //     metal === "gold" ||
+  //     metal === "gold kilobar" ||
+  //     metal === "gold ten tola"
+  //   ) {
+  //     return {
+  //       bid: parseFloat(goldData.bid) || 0,
+  //       ask: parseFloat(goldData.ask) || 0,
+  //     };
+  //   } else if (metal === "silver") {
+  //     return {
+  //       bid: parseFloat(silverData.bid) || 0,
+  //       ask: parseFloat(silverData.ask) || 0,
+  //     };
+  //   }
+  //   return { bid: 0, ask: 0 };
+  // };
+
+
+
   const getBidAskValues = (metal) => {
-    if (
-      metal === "gold" ||
-      metal === "gold kilobar" ||
-      metal === "gold ten tola"
-    ) {
+    const lower = metal.toLowerCase();
+  
+    if (lower.includes("gold")) {
       return {
-        bid: parseFloat(goldData.bid) || 0,
-        ask: parseFloat(goldData.ask) || 0,
-      };
-    } else if (metal === "silver") {
-      return {
-        bid: parseFloat(silverData.bid) || 0,
-        ask: parseFloat(silverData.ask) || 0,
+        bid: Number(goldData?.bid || 0),
+        ask: Number(goldData?.ask || 0),
       };
     }
-    return { bid: 0, ask: 0 };
+  
+    if (lower.includes("silver")) {
+      return {
+        bid: Number(silverData?.bid || 0),
+        ask: Number(silverData?.ask || 0),
+      };
+    }
+  
+    return {
+      bid: 0,
+      ask: 0,
+    };
   };
+  console.log("Gold Data:", goldData);
+  console.log("Commodities:", commodities);
 
   // Helper function to calculate purity power
   const calculatePurityPower = (purityInput) => {
