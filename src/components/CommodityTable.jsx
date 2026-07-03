@@ -58,8 +58,9 @@ const CommodityTable = ({ commodities }) => {
       ask: 0,
     };
   };
-  console.log("Gold Data:", goldData);
-  console.log("Commodities:", commodities);
+  // Don't render until spot rate data has loaded — prevents showing sellCharge-only values
+  const goldLoaded = Number(goldData?.bid) > 0 || Number(goldData?.ask) > 0;
+  if (!goldLoaded) return null;
 
   // Helper function to calculate purity power
   const calculatePurityPower = (purityInput) => {
@@ -71,7 +72,7 @@ const CommodityTable = ({ commodities }) => {
   const formatValue = (value, weight) => {
     // Format the value based on the weight
     const formattedValue =
-      weight === "GM"
+      (weight || "").toUpperCase() === "GM"
         ? value.toFixed(2).toLocaleString()
         : Math.round(value).toLocaleString();
 
@@ -162,6 +163,7 @@ const CommodityTable = ({ commodities }) => {
             } = commodity;
 
             // Ensure all values are numbers
+            const normalizedWeight = (weight || "").toUpperCase();
             const unitMultiplier =
               {
                 GM: 1,
@@ -169,8 +171,9 @@ const CommodityTable = ({ commodities }) => {
                 TTB: 116.64,
                 TOLA: 11.664,
                 OZ: 31.1034768,
-              }[weight] || 1;
+              }[normalizedWeight] || 1;
 
+            const unitValue = parseFloat(unit) || 0;  // ← was using raw `unit`, now safely parsed
             const weightValue = parseFloat(weight) || 0;
             const purityValue = parseFloat(purity) || 0;
             const purityPower = calculatePurityPower(purityValue);
@@ -179,6 +182,7 @@ const CommodityTable = ({ commodities }) => {
             const buyPremiumValue = parseFloat(buyPremium) || 0;
             const sellPremiumValue = parseFloat(sellPremium) || 0;
 
+
             const biddingValue = bid + buyPremiumValue;
             const askingValue = ask + sellPremiumValue;
             const biddingPrice = (biddingValue / 31.103) * 3.674;
@@ -186,10 +190,10 @@ const CommodityTable = ({ commodities }) => {
 
             // Calculation of buyPrice and sellPrice
             const buyPrice =
-              biddingPrice * unitMultiplier * unit * purityPower +
+              biddingPrice * unitMultiplier * unitValue * purityPower +
               buyChargeValue;
             const sellPrice =
-              askingPrice * unitMultiplier * unit * purityPower +
+              askingPrice * unitMultiplier * unitValue * purityPower +
               sellChargeValue;
 
             // Check if this is the first or last row
